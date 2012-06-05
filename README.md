@@ -31,7 +31,7 @@ Yii Application Component to interact with smtp servers without relying on PHP's
 
 ## Configuration ##
 
-The following is a outlines all the avaible options, and their default options
+The following is an outline of all the avaible options, and their default options
 
     host_name="localhost"  		Host name of smtp server
     host_port=25				Port of smtp server
