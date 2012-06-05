@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Kemail by mrkmg</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Kemail</h1>
+        <p>Yii Application Component to interact with smtp servers without relying on PHP's mail or PEAR's Mail.</p>
+        <p class="view"><a href="https://github.com/mrkmg/KEmail">View the Project on GitHub <small>mrkmg/KEmail</small></a></p>
+        <ul>
+          <li><a href="https://github.com/mrkmg/KEmail/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mrkmg/KEmail/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mrkmg/KEmail">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>KEmail</h1>
+
+<p>Yii Application Component to interact with smtp servers without relying on PHP's mail or PEAR's Mail. Simply a wrapper for <a href="http://www.phpclasses.org/package/14-PHP-Sends-e-mail-messages-via-SMTP-protocol.html">http://www.phpclasses.org/package/14-PHP-Sends-e-mail-messages-via-SMTP-protocol.html</a></p>
+
+<h2>To Install</h2>
+
+<ol>
+<li><p>Copy KEmail into approot/protected/extenstions</p></li>
+<li>
+<p>Under "import", add:</p>
+
+<p>application.extensions.KEmail.KEmail</p>
+</li>
+<li>
+<p>Under "components", add:</p>
+
+<p>'email'=&gt;array(<br>
+    'class'=&gt;'KEmail',<br>
+    'host_name'=&gt;'smtp_server',  //Hostname or IP of smtp server<br>
+),</p>
+</li>
+</ol><h2>Basic Usage</h2>
+
+<ol>
+<li><p>Single recipient<br>
+Yii::app()-&gt;email-&gt;send('<a href="mailto:from@email.address">from@email.address</a>','<a href="mailto:to@email.address">to@email.address</a>','Subject','Body');</p></li>
+<li><p>Multiple recipients<br>
+$to = array(<br>
+'<a href="mailto:user1@email.address">user1@email.address</a>',<br>
+'<a href="mailto:user2@emai.address">user2@emai.address</a>',<br>
+);<br>
+Yii::app()-&gt;email-&gt;send('<a href="mailto:from@email.address">from@email.address</a>',$to,'Subject','Body');</p></li>
+</ol><h2>Configuration</h2>
+
+<p>The following is an outline of all the avaible options, and their default options</p>
+
+<pre><code>host_name="localhost"       Host name of smtp server
+host_port=25                Port of smtp server
+ssl=false                   Force SSL
+http_proxy_host_name=''     Set to enable using an http proxy to access smtp server
+http_proxy_host_port=3128   Port of http proxy
+socks_host_name=''          Set to enable using a socks proxy
+socks_host_port=1080        Port of socks proxy
+socks_version='5'           Version of socks proxy
+start_tls=false             Force `start_tls`
+localhost='localhost'       Given hostname of client
+direct_delivery=false       Skip smtp server and delevier directly to recipients smtp
+timeout=10                  Time in seconds to timeout for all smtp connections
+data_timeout=0              Time in seconds to timeout for data transfer to SMTP server, if 0 uses timeout
+debug=false                 Output Debug information to browser
+html_debug=true             Format Debug information as html
+pop3_auth_host=''           Set to authenticate to a pop3 server
+user=""                     Username for smtp authentication
+realm=""                    Realm for smtp authentication
+password=""                 Password for smtp authentication
+workstation=""              Workstation for smtp authentication
+authentication_mechanism="" Force a specific smtp authentication mechanism ('LOGIN','PLAIN','CRAM-MD5','NTLM')
+</code></pre>
+
+<h2>Advanced Usage</h2>
+
+<p>You can also customize headers</p>
+
+<p>For example, to send an HTML email, do the following</p>
+
+<pre><code>$headers = array(
+    'MIME-Version: 1.0',
+    'Content-type: text/html; charset=iso-8859-1'
+);
+Yii::app()-&gt;email-&gt;send('from@email.address','to@email.address','Subject','&lt;html&gt;&lt;head&gt;&lt;title&gt;Subject&lt;/title&gt;&lt;/head&gt;&lt;body&gt;BODY&lt;/body&gt;&lt;/html&gt;',$headers);
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/mrkmg">mrkmg</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
