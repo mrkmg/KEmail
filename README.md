@@ -55,6 +55,16 @@ The following is an outline of all the avaible options, and their default option
     workstation=""				Workstation for smtp authentication
     authentication_mechanism=""	Force a specific smtp authentication mechanism ('LOGIN','PLAIN','CRAM-MD5','NTLM')
 
+## Advanced Usage ##
 
+You can also customize headers
+
+For example, to send an HTML email, do the following
+
+	$headers = array(
+		'MIME-Version: 1.0',
+		'Content-type: text/html; charset=iso-8859-1'
+	);
+	Yii::app()->email->send('from@email.address','to@email.address','Subject','<html><head><title>Subject</title></head><body>BODY</body></html>',$headers);
 
 
