@@ -68,3 +68,10 @@ For example, to send an HTML email, do the following
 	Yii::app()->email->send('from@email.address','to@email.address','Subject','<html><head><title>Subject</title></head><body>BODY</body></html>',$headers);
 
 
+## TODO/Upcoming Features ##
+
+* Add mail queue
+    * Allow for use of a variety of storage methods, flatfile, sqlite, mysql.
+    * Implement yiic access to process mail queue
+    * Implement function call to process mail queue
+* Error detection and reporting
