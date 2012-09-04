@@ -264,8 +264,9 @@ class KEmail extends CApplicationComponent
         
         $connection = Yii::app()->db;
         if(!$connection) throw new Exception('Database connection not found');
+        if(!is_string($to) and !is_array($to)) throw new Exception('$to can only be a string or an array');
 
-        if(!is_string($to)) throw new Exception('$to can only be a string or an array');
+        $to = json_encode($to);
 
         $insertSql = 'INSERT INTO `'.$this->queue_table_name.'` (`priority`,`from`,`to`,`subject`,`body`,`additional_headers`)
             VALUES (:priority,:from,:to,:subject,:body,:additional_headers)';
@@ -305,13 +306,17 @@ class KEmail extends CApplicationComponent
         $toBeDeleted = array();
 
         foreach($data as $email){
-            $this->send($email['from'],$email['to'],$email['subject'],$email['body'],json_decode($email['additional_headers'],true));
+            $this->send($email['from'],json_decode($email['to'],true),$email['subject'],$email['body'],json_decode($email['additional_headers'],true));
             $toBeDeleted[] = $email['id'];
         }
 
-        $deleteSql = 'DELETE FROM `'.$this->queue_table_name.'` WHERE `id` IN ('.implode(', ', $toBeDeleted).')';
-        $command = $connection->createCommand($deleteSql);
-        $command->execute();
+        if(count($data))
+        {
+            $deleteSql = 'DELETE FROM `'.$this->queue_table_name.'` WHERE `id` IN ('.implode(', ', $toBeDeleted).')';
+            $command = $connection->createCommand($deleteSql);
+            $command->execute();
+        }
+
         return true;
     }
 
