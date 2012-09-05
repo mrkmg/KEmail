@@ -17,6 +17,11 @@ Yii Application Component to interact with smtp servers without relying on PHP's
         'host_name'=>'smtp_server',  //Hostname or IP of smtp server  
     ),
 
+## Full Documentation ##
+
+You can view the [http://mrkmg.github.com/KEmail/class-KEmail.html](full documentation) online or
+you can checkout the docs branch and view it locally on your machine.
+
 ## Basic Usage ##
 
 1. Single recipient  
