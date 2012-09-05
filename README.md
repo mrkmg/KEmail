@@ -19,7 +19,7 @@ Yii Application Component to interact with smtp servers without relying on PHP's
 
 ## Full Documentation ##
 
-You can view the [http://mrkmg.github.com/KEmail/class-KEmail.html](full documentation) online or
+You can view the [full documentation](http://mrkmg.github.com/KEmail/class-KEmail.html) online or
 you can checkout the docs branch and view it locally on your machine.
 
 ## Basic Usage ##
