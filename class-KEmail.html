@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.7.0" />
+
+	<title>Class KEmail</title>
+
+	<script type="text/javascript" src="resources/combined.js?1541222580"></script>
+	<script type="text/javascript" src="elementlist.js?2551744100"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active"><a href="package-KEmail.html">KEmail</a>
+						</li>
+				<li><a href="package-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-KEmail.html">KEmail</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-KEmail.html" title="Summary of KEmail"><span>Package</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class KEmail</h1>
+
+
+	<div class="description">
+	
+<p>KEmail is an Yii Application Component that provides direct smtp
+interaction</p>
+
+<p>KEmail wraps <a
+href="http://www.phpclasses.org/package/14-PHP-Sends-e-mail-messages-via-SMTP-protocol.html">http://www.phpclasses.org/package/14-PHP-Sends-e-mail-messages-via-SMTP-protocol.html</a>
+to provide a simple way to send email's to specific smtp servers from within php
+only. Does not require php's mail() or any other library.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+CApplicationComponent
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>KEmail</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-KEmail.html">KEmail</a><br />
+
+		<b>Located at</b> <a href="source-class-KEmail.html#3" title="Go to source code">KEmail.php</a><br />
+	</div>
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="init" id="_init">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_init">#</a>
+		<code><a href="source-class-KEmail.html#146" title="Go to source code">init</a>( )</code>
+
+		<div class="description short">
+			
+<p>Imports required libraries and sets configuration</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Imports required libraries and sets configuration</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="send" id="_send">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_send">#</a>
+		<code><a href="source-class-KEmail.html#201" title="Go to source code">send</a>( <span>string <var>$from</var></span>, <span>array|string <var>$to</var></span>, <span>string <var>$subject</var></span>, <span>string <var>$body</var></span>, <span>array <var>$additional_headers</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>Sends an email via smtp library</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sends an email via smtp library</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$from</var></dt>
+					<dd><code>string</code><br> From email address</dd>
+					<dt><var>$to</var></dt>
+					<dd><code>array|string</code><br> To email address(es)</dd>
+					<dt><var>$subject</var></dt>
+					<dd><code>string</code><br> Subject of email</dd>
+					<dt><var>$body</var></dt>
+					<dd><code>string</code><br> Body of the email</dd>
+					<dt><var>$additional_headers</var></dt>
+					<dd><code>array</code><br> More headers to include in the email</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>Whether or not the email was sent<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>when $to is not an array or string<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="queue" id="_queue">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_queue">#</a>
+		<code><a href="source-class-KEmail.html#245" title="Go to source code">queue</a>( <span>string <var>$from</var></span>, <span>array|string <var>$to</var></span>, <span>string <var>$subject</var></span>, <span>string <var>$body</var></span>, <span>array <var>$additional_headers</var> = <span class="php-keyword1">array</span>()</span>, <span>integer <var>$priority</var> = <span class="php-num">5</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Queues an email to be sent via smtp library</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Queues an email to be sent via smtp library</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$from</var></dt>
+					<dd><code>string</code><br> From email address</dd>
+					<dt><var>$to</var></dt>
+					<dd><code>array|string</code><br> To email address(es)</dd>
+					<dt><var>$subject</var></dt>
+					<dd><code>string</code><br> Subject of email</dd>
+					<dt><var>$body</var></dt>
+					<dd><code>string</code><br> Body of the email</dd>
+					<dt><var>$additional_headers</var></dt>
+					<dd><code>array</code><br> More headers to include in the email</dd>
+					<dt><var>$priority</var></dt>
+					<dd><code>integer</code><br> Number 0-9 denoting a priority, 9 being the highest</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>Whether or not the email was queued<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>when $enable_queue is false<br />
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>when no database is defined<br />
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>when $to is not an array or string<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="processQueue" id="_processQueue">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_processQueue">#</a>
+		<code><a href="source-class-KEmail.html#283" title="Go to source code">processQueue</a>( <span>integer <var>$limit</var> = <span class="php-num">0</span></span>, <span>boolean <var>$ignorePriority</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Sends emails from queue</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sends emails from queue</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$limit</var></dt>
+					<dd><code>integer</code><br>How many emails to process from the queue. 0 means unlimited</dd>
+					<dt><var>$ignorePriority</var></dt>
+					<dd><code>boolean</code><br>Whether or not to include priority in queue selection</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br><strong>TODO</strong> always returns true for now.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>when no database is defined<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="queueSize" id="_queueSize">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_queueSize">#</a>
+		<code><a href="source-class-KEmail.html#323" title="Go to source code">queueSize</a>( )</code>
+
+		<div class="description short">
+			
+<p>Returns total count of emails in the queue</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns total count of emails in the queue</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>Total count of items in the queue<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>when no database is defined<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="host_name" id="$host_name">
+
+		<td class="attributes"><code>
+			public 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#14" title="Go to source code"><var>$host_name</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">&quot;localhost&quot;</span></code></td>
+		<td class="description"><div>
+			<a href="#$host_name" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Host name of smtp server</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Host name of smtp server</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="host_port" id="$host_port">
+
+		<td class="attributes"><code>
+			public 
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#19" title="Go to source code"><var>$host_port</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">25</span></code></td>
+		<td class="description"><div>
+			<a href="#$host_port" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Port of smtp server</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Port of smtp server</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="ssl" id="$ssl">
+
+		<td class="attributes"><code>
+			public 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#24" title="Go to source code"><var>$ssl</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$ssl" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Force SSL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Force SSL</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="http_proxy_host_name" id="$http_proxy_host_name">
+
+		<td class="attributes"><code>
+			public 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#29" title="Go to source code"><var>$http_proxy_host_name</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$http_proxy_host_name" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Set to enable using an http proxy to access smtp server</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Set to enable using an http proxy to access smtp server</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="http_proxy_host_port" id="$http_proxy_host_port">
+
+		<td class="attributes"><code>
+			public 
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#34" title="Go to source code"><var>$http_proxy_host_port</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">3128</span></code></td>
+		<td class="description"><div>
+			<a href="#$http_proxy_host_port" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Port of http proxy</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Port of http proxy</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="socks_host_name" id="$socks_host_name">
+
+		<td class="attributes"><code>
+			public 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#39" title="Go to source code"><var>$socks_host_name</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$socks_host_name" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Set to enable using a socks proxy</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Set to enable using a socks proxy</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="socks_host_port" id="$socks_host_port">
+
+		<td class="attributes"><code>
+			public 
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#44" title="Go to source code"><var>$socks_host_port</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">1080</span></code></td>
+		<td class="description"><div>
+			<a href="#$socks_host_port" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Port of socks proxy</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Port of socks proxy</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="socks_version" id="$socks_version">
+
+		<td class="attributes"><code>
+			public 
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#49" title="Go to source code"><var>$socks_version</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'5'</span></code></td>
+		<td class="description"><div>
+			<a href="#$socks_version" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Version of socks proxy</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Version of socks proxy</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="start_tls" id="$start_tls">
+
+		<td class="attributes"><code>
+			public 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#54" title="Go to source code"><var>$start_tls</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$start_tls" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Force <code>start_tls</code></p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Force <code>start_tls</code></p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="localhost" id="$localhost">
+
+		<td class="attributes"><code>
+			public 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#59" title="Go to source code"><var>$localhost</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'localhost'</span></code></td>
+		<td class="description"><div>
+			<a href="#$localhost" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Given hostname of client</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Given hostname of client</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="direct_delivery" id="$direct_delivery">
+
+		<td class="attributes"><code>
+			public 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#64" title="Go to source code"><var>$direct_delivery</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$direct_delivery" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Skip smtp server and delevier directly to recipients smtp</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Skip smtp server and delevier directly to recipients smtp</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="timeout" id="$timeout">
+
+		<td class="attributes"><code>
+			public 
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#69" title="Go to source code"><var>$timeout</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">10</span></code></td>
+		<td class="description"><div>
+			<a href="#$timeout" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Time in seconds to timeout for all smtp connections</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Time in seconds to timeout for all smtp connections</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="data_timeout" id="$data_timeout">
+
+		<td class="attributes"><code>
+			public 
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#74" title="Go to source code"><var>$data_timeout</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">0</span></code></td>
+		<td class="description"><div>
+			<a href="#$data_timeout" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Time in seconds to timeout for data transfer to SMTP server, if 0 uses
+timeout</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Time in seconds to timeout for data transfer to SMTP server, if 0 uses
+timeout</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="debug" id="$debug">
+
+		<td class="attributes"><code>
+			public 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#79" title="Go to source code"><var>$debug</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$debug" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Output Debug information to browser</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Output Debug information to browser</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="html_debug" id="$html_debug">
+
+		<td class="attributes"><code>
+			public 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#84" title="Go to source code"><var>$html_debug</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">true</span></code></td>
+		<td class="description"><div>
+			<a href="#$html_debug" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Format Debug information as html, caution as this does not care when it is
+called, it will immediatly output</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Format Debug information as html, caution as this does not care when it is
+called, it will immediatly output</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="pop3_auth_host" id="$pop3_auth_host">
+
+		<td class="attributes"><code>
+			public 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#89" title="Go to source code"><var>$pop3_auth_host</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$pop3_auth_host" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Set to authenticate to a pop3 server</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Set to authenticate to a pop3 server</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="user" id="$user">
+
+		<td class="attributes"><code>
+			public 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#94" title="Go to source code"><var>$user</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">&quot;&quot;</span></code></td>
+		<td class="description"><div>
+			<a href="#$user" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Username for smtp authentication</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Username for smtp authentication</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="realm" id="$realm">
+
+		<td class="attributes"><code>
+			public 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#99" title="Go to source code"><var>$realm</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">&quot;&quot;</span></code></td>
+		<td class="description"><div>
+			<a href="#$realm" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Realm for smtp authentication</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Realm for smtp authentication</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="password" id="$password">
+
+		<td class="attributes"><code>
+			public 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#104" title="Go to source code"><var>$password</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">&quot;&quot;</span></code></td>
+		<td class="description"><div>
+			<a href="#$password" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Password for smtp authentication</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Password for smtp authentication</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="workstation" id="$workstation">
+
+		<td class="attributes"><code>
+			public 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#109" title="Go to source code"><var>$workstation</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">&quot;&quot;</span></code></td>
+		<td class="description"><div>
+			<a href="#$workstation" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Workstation for smtp authentication</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Workstation for smtp authentication</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="authentication_mechanism" id="$authentication_mechanism">
+
+		<td class="attributes"><code>
+			public 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#114" title="Go to source code"><var>$authentication_mechanism</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">&quot;&quot;</span></code></td>
+		<td class="description"><div>
+			<a href="#$authentication_mechanism" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Force a specific smtp authentication mechanism
+('LOGIN','PLAIN','CRAM-MD5','NTLM')</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Force a specific smtp authentication mechanism
+('LOGIN','PLAIN','CRAM-MD5','NTLM')</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="enable_queue" id="$enable_queue">
+
+		<td class="attributes"><code>
+			public 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#119" title="Go to source code"><var>$enable_queue</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$enable_queue" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>enable_queue Enable the queuing mechanism</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>enable_queue Enable the queuing mechanism</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="queue_table_name" id="$queue_table_name">
+
+		<td class="attributes"><code>
+			public 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#124" title="Go to source code"><var>$queue_table_name</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'kemail_queue'</span></code></td>
+		<td class="description"><div>
+			<a href="#$queue_table_name" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>queue_table_name name of table in database to hold the queue</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>queue_table_name name of table in database to hold the queue</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="autocreate_db_table" id="$autocreate_db_table">
+
+		<td class="attributes"><code>
+			public 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KEmail.html#129" title="Go to source code"><var>$autocreate_db_table</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">true</span></code></td>
+		<td class="description"><div>
+			<a href="#$autocreate_db_table" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Automatically check for and create the kemail_queue table in your
+database</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Automatically check for and create the kemail_queue table in your
+database</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
