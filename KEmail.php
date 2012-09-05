@@ -151,14 +151,14 @@ class KEmail extends CApplicationComponent
     public function init()
     {
         $this->current_directory = dirname(__FILE__).DIRECTORY_SEPARATOR;
-        include($this->current_directory.'includes/smtp.php');
-        include($this->current_directory.'includes/basic_sasl_client.php');
-        include($this->current_directory.'includes/cram_md5_sasl_client.php');
-        include($this->current_directory.'includes/digest_sasl_client.php');
-        include($this->current_directory.'includes/login_sasl_client.php');
-        include($this->current_directory.'includes/ntlm_sasl_client.php');
-        include($this->current_directory.'includes/plain_sasl_client.php');
-        include($this->current_directory.'includes/sasl.php');
+        include($this->current_directory.'includes'.DIRECTORY_SEPARATOR.'smtp.php');
+        include($this->current_directory.'includes'.DIRECTORY_SEPARATOR.'basic_sasl_client.php');
+        include($this->current_directory.'includes'.DIRECTORY_SEPARATOR.'cram_md5_sasl_client.php');
+        include($this->current_directory.'includes'.DIRECTORY_SEPARATOR.'digest_sasl_client.php');
+        include($this->current_directory.'includes'.DIRECTORY_SEPARATOR.'login_sasl_client.php');
+        include($this->current_directory.'includes'.DIRECTORY_SEPARATOR.'ntlm_sasl_client.php');
+        include($this->current_directory.'includes'.DIRECTORY_SEPARATOR.'plain_sasl_client.php');
+        include($this->current_directory.'includes'.DIRECTORY_SEPARATOR.'sasl.php');
         
         $this->smtp_object = new smtp_class;
         $this->smtp_object->host_name =             $this->host_name;
@@ -192,7 +192,7 @@ class KEmail extends CApplicationComponent
             if(!function_exists("GetMXRR"))
             {
                 $_NAMESERVERS=array();
-                include($this->current_directory."includes/getmxrr.php");
+                include($this->current_directory.'includes'.DIRECTORY_SEPARATOR.'getmxrr.php');
             }
         }
         if($this->needToCreateTable()) $this->autoCreateTable();
@@ -318,6 +318,26 @@ class KEmail extends CApplicationComponent
         }
 
         return true;
+    }
+
+    /**
+     * Returns total count of emails in the queue
+     * 
+     * @return int Total count of items in the queue
+     *
+     * @throws Exception when no database is defined
+    */
+    public function queueSize()
+    {
+        $connection = Yii::app()->db;
+        if(!$connection) throw new Exception('Database connection not found');
+
+        $countSql = 'SELECT COUNT(*) FROM `'.$this->queue_table_name.'`';
+
+        $command = $connection->createCommand($countSql);
+        $count = $command->queryScalar();
+
+        return $count;
     }
 
     private function needToCreateTable()
