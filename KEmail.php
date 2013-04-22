@@ -142,7 +142,11 @@ class KEmail extends CApplicationComponent
     */
     private $smtp_object;
     
-    
+    /**
+     * @var CDbConnection Holds the CDbConnection to be used for queues
+    */
+    private $connection;
+
     /**
      * Imports required libraries and sets configuration
      *
@@ -262,7 +266,7 @@ class KEmail extends CApplicationComponent
     {
         if(!$this->enable_queue) throw new Exception('Queue is not enabled for kemail');
         
-        $connection = Yii::app()->db;
+        $connection = $this->getConnection();
         if(!$connection) throw new Exception('Database connection not found');
         if(!is_string($to) and !is_array($to)) throw new Exception('$to can only be a string or an array');
 
@@ -292,7 +296,7 @@ class KEmail extends CApplicationComponent
     */
     public function processQueue($limit=0,$ignorePriority=false)
     {
-        $connection = Yii::app()->db;
+        $connection = $this->getConnection();
         if(!$connection) throw new Exception('Database connection not found');
 
         $selectSql = 'SELECT * FROM `'.$this->queue_table_name.'`';
@@ -329,7 +333,7 @@ class KEmail extends CApplicationComponent
     */
     public function queueSize()
     {
-        $connection = Yii::app()->db;
+        $connection = $this->getConnection();
         if(!$connection) throw new Exception('Database connection not found');
 
         $countSql = 'SELECT COUNT(*) FROM `'.$this->queue_table_name.'`';
@@ -340,10 +344,23 @@ class KEmail extends CApplicationComponent
         return $count;
     }
 
+    /**
+     * Set the CDbConnection to be used for the queue
+     *
+     * @param CDbConnection The connection to use for the queue
+     *
+     * @throws Exception if $connection is not a CDbConnection
+    */
+    public function setConnection($connection)
+    {
+        if(!is_a($connection,'CDbConnection')) throw Exception('$connection is not of type CDbConnection');
+        $this->connection = $connection;
+    }
+
     private function needToCreateTable()
     {
         if(!$this->enable_queue && !$this->autocreate_db_table) return false;
-        $connection = Yii::app()->db;
+        $connection = $this->getConnection();
         if(!$connection) throw new Exception('Database connection not found');
 
         $checkSql = 'show tables like "'.$this->queue_table_name.'"';
@@ -353,7 +370,7 @@ class KEmail extends CApplicationComponent
 
     private function autoCreateTable()
     {
-        $connection = Yii::app()->db;
+        $connection = $this->getConnection();
         if(!$connection) throw new Exception('Database connection not found');
 
         $createSQL = 'CREATE TABLE IF NOT EXISTS `'.$this->queue_table_name.'` (
@@ -371,6 +388,14 @@ class KEmail extends CApplicationComponent
             ) ENGINE=MyISAM DEFAULT CHARSET=utf8;';
         $command = $connection->createCommand($createSQL);
         $command->execute();
+    }
+
+    private function getConnection()
+    {
+        if(!$this->connection) $connection = Yii::app()->db;
+        else $connection = $this->connection;
+        if(!$connection) throw new Exception('Database connection not found');
+        return $connection;
     }
 }
 
