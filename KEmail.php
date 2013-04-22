@@ -271,6 +271,7 @@ class KEmail extends CApplicationComponent
         if(!is_string($to) and !is_array($to)) throw new Exception('$to can only be a string or an array');
 
         $to = json_encode($to);
+        $additional_headers = json_encode($additional_headers);
 
         $insertSql = 'INSERT INTO `'.$this->queue_table_name.'` (`priority`,`from`,`to`,`subject`,`body`,`additional_headers`)
             VALUES (:priority,:from,:to,:subject,:body,:additional_headers)';
@@ -280,7 +281,7 @@ class KEmail extends CApplicationComponent
         $command->bindParam(':to',$to,PDO::PARAM_STR);
         $command->bindParam(':subject',$subject,PDO::PARAM_STR);
         $command->bindParam(':body',$body,PDO::PARAM_STR);
-        $command->bindParam(':additional_headers',json_encode($additional_headers),PDO::PARAM_STR);
+        $command->bindParam(':additional_headers',$additional_headers,PDO::PARAM_STR);
         return $command->execute();
     }
 
