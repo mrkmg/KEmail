@@ -130,6 +130,11 @@ class KEmail extends CApplicationComponent
      *@var bool Automatically check for and create the kemail_queue table in your database
     */
     public $autocreate_db_table=true;
+
+    /**
+     *@var string sender name of the sender for user friendly display of names in mail-clients
+    */
+    public $sender='';
     
     /**
      * @var string current directory of this script file, used to include required libraries
@@ -234,7 +239,7 @@ class KEmail extends CApplicationComponent
             $from,
             $to_f,
             array_merge(array(
-                    "From: $from",
+                    "From: $this->sender <$from>",
                     "To: $to_h",
                     "Subject: ".$subject,
                     "Date: ".strftime("%a, %d %b %Y %H:%M:%S %Z")
