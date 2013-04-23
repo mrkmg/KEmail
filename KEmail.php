@@ -307,11 +307,12 @@ class KEmail extends CApplicationComponent
         $toBeDeleted = array();
 
         foreach($data as $email){
-            $this->send($email['from'],json_decode($email['to'],true),$email['subject'],$email['body'],json_decode($email['additional_headers'],true));
-            $toBeDeleted[] = $email['id'];
+            if ($this->send($email['from'],json_decode($email['to'],true),$email['subject'],$email['body'],json_decode($email['additional_headers'],true))) {
+                $toBeDeleted[] = $email['id'];
+            }
         }
 
-        if(count($data))
+        if(count($toBeDeleted))
         {
             $deleteSql = 'DELETE FROM `'.$this->queue_table_name.'` WHERE `id` IN ('.implode(', ', $toBeDeleted).')';
             $command = $connection->createCommand($deleteSql);
