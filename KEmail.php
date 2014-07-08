@@ -153,6 +153,11 @@ class KEmail extends CApplicationComponent
     private $connection;
 
     /**
+     * @var last_error Hold string of last error
+    */
+    private $last_error = '';
+
+    /**
      * Imports required libraries and sets configuration
      *
      * @access public
@@ -239,7 +244,7 @@ class KEmail extends CApplicationComponent
             throw new Exception('$to can only be a string or an array');
         }
         
-        return $this->smtp_object->SendMessage(
+        $success = $this->smtp_object->SendMessage(
             $from,
             $to_f,
             array_merge(array(
@@ -249,6 +254,14 @@ class KEmail extends CApplicationComponent
                     "Date: ".strftime("%a, %d %b %Y %H:%M:%S %Z")
             ),$additional_headers),
             $body);
+
+        if($success){
+            $this->last_error = '';
+            return true;
+        } else {
+            $this->last_error = $this->smtp_object->error;
+            return false;
+        }
     }
 
     /**
@@ -287,7 +300,15 @@ class KEmail extends CApplicationComponent
         $command->bindParam(':subject',$subject,PDO::PARAM_STR);
         $command->bindParam(':body',$body,PDO::PARAM_STR);
         $command->bindParam(':additional_headers',$additional_headers,PDO::PARAM_STR);
-        return $command->execute();
+        $success = $command->execute();
+        if($success){
+            $this->last_error = '';
+            return true;
+        } else {
+            $this->last_error = 'Failed to insert email to queue.';
+            return false;
+        }
+
     }
 
     /**
@@ -314,12 +335,18 @@ class KEmail extends CApplicationComponent
         $data = $command->query();
 
         $toBeDeleted = array();
-
+        $had_error = false;
+        $error_string = '';
         foreach($data as $email){
             if ($this->send($email['from'],json_decode($email['to'],true),$email['subject'],$email['body'],json_decode($email['additional_headers'],true))) {
                 $toBeDeleted[] = $email['id'];
+            } else {
+                $had_error = true;
+                $error_string .= $this->smtp_object->error.PHP_EOL;
             }
         }
+
+        $this->last_error = trim($error_string);
 
         if(count($toBeDeleted))
         {
@@ -328,7 +355,7 @@ class KEmail extends CApplicationComponent
             $command->execute();
         }
 
-        return true;
+        return $had_error;
     }
 
     /**
@@ -362,6 +389,10 @@ class KEmail extends CApplicationComponent
     {
         if(!is_a($connection,'CDbConnection')) throw Exception('$connection is not of type CDbConnection');
         $this->connection = $connection;
+    }
+
+    public function lastError(){
+        return $this->smtp_object->error;
     }
 
     private function needToCreateTable()
